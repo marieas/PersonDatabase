@@ -14,6 +14,14 @@ namespace PersonProject.Controllers
             reader = sqlReader;
         }
 
+        [Route("/employees/")]
+        [HttpGet]
+        public async Task<List<Person>> GetAllEmployees()
+        {
+            var res = await reader.GetEmployeees();
+            return res;
+        }
+
         [Route("/employees/{WorkPlace}")]
         [HttpGet]
         public async Task<List<Person>> Get(string WorkPlace)
